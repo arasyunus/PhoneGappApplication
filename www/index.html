@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<script>
+document.addEventListener("deviceready", onDeviceReady, false);
+ 
+function onDeviceReady() {
+	 navigator.notification.beep(2);
+	 navigator.notification.vibrate(2000);
+}
+ 
+function onayIste(butonIndex) {
+	if (butonIndex == 2){
+	 confirmTekrarGoster();
+	}
+}
+ 
+function onayTekrarIste(butonIndex) {
+	if (butonIndex == 2){
+	 alert("Çıkışınıza izin verildi!");
+	}
+}
+ 
+function confirmGoster() {
+	navigator.notification.confirm(
+		'Çıkmak yapmak istediğinize emin misiniz?',
+		onayIste,
+		'ÇIKIŞ',
+		'Hayır,Evet'
+	);
+}
+ 
+function confirmTekrarGoster() {
+	navigator.notification.confirm(
+		'Son kararınız mı?',
+		onayTekrarIste,
+		'ÇIKIŞ',
+		'Hayır,Evet'
+	);
+}
+
+</script>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Hello World</title>
+    </head>
+    <body>
+        <div class="app">
+            <h1>PhoneGap</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+			<a href="#" onclick="confirmGoster(); return false;">ÇIKIŞ YAP</a>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+
+        </script>
+    </body>
+</html>
